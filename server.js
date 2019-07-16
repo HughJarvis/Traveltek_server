@@ -2,7 +2,18 @@ const express = require('express');
 const app = express();
 
 const cors = require("cors");
+const flights = require("./flighdata_A.json")
+
 app.use(cors());
+
+app.get('/:airport', function (req, res){
+  const airport = req.params.airport;
+  const filteredFlights = flights.filter((flight) => {
+    flight["-depair"] = airport;
+  })
+  res.send(filteredFlights)
+});
+
 
 app.get('/', function (req, res) {
   res.send(
