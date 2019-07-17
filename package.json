@@ -12,7 +12,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "xml-js": "^1.6.11"
   },
   "devDependencies": {
     "cors": "^2.8.5",
