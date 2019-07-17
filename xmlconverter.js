@@ -1,3 +1,5 @@
+//intention is to require this into server.js
+
 var convert = require('xml-js');
 var xml = require('fs').readFileSync('./flighdata_A.xml', 'utf8');
 var options = {ignoreComment: true, alwaysChildren: true};

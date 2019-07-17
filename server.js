@@ -1,7 +1,8 @@
+//abstract these 4 lines for converting xml into separate file
 var convert = require('xml-js');
 var xml = require('fs').readFileSync(__dirname + '/flighdata_A.xml', 'utf8');
-var options = {ignoreComment: true, alwaysChildren: true, compact: true};
-var flights = convert.xml2json(xml, options); // or convert.xml2json(xml, options)
+var options = {compact: true};
+var flights = convert.xml2js(xml, options); // or convert.xml2json(xml, options)
 
 const express = require('express');
 const app = express();
@@ -20,7 +21,7 @@ app.use(cors());
 
 
 app.get('/', function (req, res) {
-  res.send(flights)
+  res.send(JSON.stringify(flights.flights.flight))
 });
 
 
